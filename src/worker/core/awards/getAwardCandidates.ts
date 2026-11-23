@@ -128,7 +128,7 @@ export const getAwardCandidates = async (
 		awards,
 		extraStatRanges: [],
 		extraStats: [],
-		numPlayersPerIndividualAward: 10,
+		numPlayersPerIndividualAward: 20,
 		season,
 		statOverridesByMatchup,
 	});

@@ -61,7 +61,7 @@ const teamAwards = async (
 	};
 };
 
-const NUM_PLAYERS_TO_STORE_PER_INDIVIDUAL_AWARD = 5;
+const NUM_PLAYERS_TO_STORE_PER_INDIVIDUAL_AWARD = 20;
 
 export const doAwards = async (conditions: Conditions) => {
 	const season = g.get("season");
