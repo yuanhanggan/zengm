@@ -196,8 +196,11 @@ export const defaultAwards = {
 			shortName: "ALL",
 			name: "All-League",
 			showStats: "overall",
-			formula: "ps",
-			numTeams: 2,
+			formula: "pts / 25 + ps",
+			formulaByPos: {
+				G: "gps * min(0.75 * teamGp / gpGoalie, 1)",
+			},
+			numTeams: 10,
 		},
 	}),
 	alr: bySport<AwardSettingTeam>({
@@ -238,7 +241,10 @@ export const defaultAwards = {
 			shortName: "ALR",
 			name: "All-Rookie",
 			showStats: "overall",
-			formula: "ps",
+			formula: "pts / 25 + ps",
+			formulaByPos: {
+				G: "gps * min(0.75 * teamGp / gpGoalie, 1)",
+			},
 			rookie: true,
 			numTeams: 1,
 		},
@@ -459,9 +465,15 @@ export const defaultAwardsHockey = {
 	} as AwardSettingIndividual,
 	dpoy: {
 		shortName: "DPOY",
-		name: "Defensive Player of the Year",
-		formula: "tk / 25 + hit / 25 + dps",
-		showStats: "defense",
+		name: "Best Defenseman",
+		// All-around value for defensemen only: points + point shares, with takeaways and hits as a smaller bonus
+		formula: "pts / 25 + ps + tk / 50 + hit / 50",
+		formulaByPos: {
+			C: "0",
+			W: "0",
+			G: "0",
+		},
+		showStats: "overall",
 	} as AwardSettingIndividual,
 	goy: {
 		shortName: "GOY",
