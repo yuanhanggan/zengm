@@ -9,6 +9,7 @@ import {
 import type { GameAttributesLeague } from "../../../common/types.ts";
 import { gameAttributeHasHistory } from "../../../common/gameAttributeHasHistory.ts";
 import { unwrapGameAttribute } from "../../../common/unwrapGameAttribute.ts";
+import { upgradeHockeyAwardSettings } from "../awards/upgradeHockeyAwardSettings.ts";
 
 export const ALWAYS_WRAP = [
 	"confs",
@@ -107,6 +108,8 @@ const loadGameAttributes = async () => {
 	}
 
 	await gameAttributesToUI(g as any);
+
+	await upgradeHockeyAwardSettings();
 };
 
 export default loadGameAttributes;
